@@ -30,6 +30,9 @@ variable "driver_infos" {
 }
 
 variable "instance_infos" {
-  type        = list(map(string))
-  description = "Instance information for hosts"
+  type = list(map(object({
+    image_source = string
+    image_checksum = string
+    capabilities = map(string)
+  })))
 }
